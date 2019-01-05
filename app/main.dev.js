@@ -4,6 +4,7 @@ const path = require('path');
 
 let tray = null;
 let window = null;
+let TRAY_ARROW_HEIGHT = 50;
 
 // Don't show the app in the doc
 //app.dock.hide()
@@ -11,15 +12,6 @@ let window = null;
 app.on('ready', () => {
   createTray()
   createWindow()
-
-  /*
-  globalShortcut.register('CommandOrControl+C', function(){
-      console.log("test")
-      const text = clipboard.readText();
-      console.log(text);
-      window.webContents.send("testBindicp" , text);
-  });
-  */
 })
 
 const createTray = () => {
@@ -60,7 +52,7 @@ const createWindow = () => {
     frame: false,
     fullscreenable: false,
     resizable: false,
-    transparent: false,
+    transparent: true,
     webPreferences: {
       backgroundThrottling: false
     }
@@ -81,7 +73,7 @@ const toggleWindow = async () => (
 
 const showWindow = () => {
   const position = getWindowPosition();
-  window.setPosition(position.x, position.y, false);
+  window.setPosition(position.x, position.y);
   window.show();
 }
 

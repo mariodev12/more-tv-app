@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import styles from './Home.css';
 
+import Header from './Header/Header';
+
+const moment = require('moment');
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +17,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://api.tvmaze.com/schedule?country=US&date=2014-12-01`)
+    fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().format('YYYY-MM-DD')}`)
       .then(data => data.json())
       .then((data) => {
         this.setState({
@@ -40,7 +44,7 @@ export default class Home extends Component {
     if (this.state.data.length > 0) {
       return (
         <div className={styles.container} data-tid="container">
-          <h2 className="title">Today</h2>
+          <Header />
           <div className={styles.content}>
             {this.renderElements()}
           </div>

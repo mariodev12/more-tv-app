@@ -1,11 +1,4 @@
 @font-face {
-  font-family: "San Francisco Bold";
-  font-style: normal;
-  font-weight: bold;
-  src: url('../fonts/SF-Pro-Display-Bold.otf') format("opentype");
-}
-
-@font-face {
   font-family: "San Francisco Regular";
   font-style: normal;
   font-weight: bold;
@@ -23,15 +16,9 @@ body {
   font-family: 'San Francisco Regular'
 }
 
-.container .today {
-  font-size: 5rem;
-  font-family: 'San Francisco Bold';
-  margin-bottom: .9rem;
-}
-
 .content {
   overflow:auto;
-  height: 450px;
+  height: 360px;
 }
 
 .contentElement {

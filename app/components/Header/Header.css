@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "San Francisco Bold";
+    font-style: normal;
+    font-weight: bold;
+    src: url('../../fonts/SF-Pro-Display-Bold.otf') format("opentype");
+}
+
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calendarIcon {
+    font-size: 1.5rem;
+}
+
+.settingsIcon {
+    font-size: 2rem;
+}
+
+.date {
+    font-size: .6rem;
+    text-transform: uppercase;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    font-family: 'San Francisco Bold';
+    margin-right: .3rem;
+}
+
