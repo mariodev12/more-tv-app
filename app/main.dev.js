@@ -19,8 +19,11 @@ const createTray = () => {
   let trayIcon = nativeImage.createFromPath(iconPath);
   trayIcon = trayIcon.resize({ width: 16, height: 12 });
   tray = new Tray(trayIcon)
+  tray.setHighlightMode('never')
   tray.on('right-click', toggleWindow)
-  tray.on('double-click', toggleWindow)
+  tray.on('double-click', () => {
+    return;
+  })
   tray.on('click', function (event) {
     toggleWindow()
 
@@ -61,9 +64,7 @@ const createWindow = () => {
 
   // Hide the window when it loses focus
   window.on('blur', () => {
-    if (!window.webContents.isDevToolsOpened()) {
       window.hide()
-    }
   })
 }
 
@@ -75,6 +76,7 @@ const showWindow = () => {
   const position = getWindowPosition();
   window.setPosition(position.x, position.y);
   window.show();
+  window.focus();
 }
 
 ipcMain.on('show-window', () => {
