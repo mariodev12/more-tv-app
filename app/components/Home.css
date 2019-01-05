@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "San Francisco Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/SF-Pro-Display-Bold.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "San Francisco Regular";
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/SF-Pro-Display-Regular.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "San Francisco Thin";
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/SF-Pro-Display-Thin.otf') format("opentype");
+}
+
+body {
+  font-family: 'San Francisco Regular'
+}
+
+.container .today {
+  font-size: 5rem;
+  font-family: 'San Francisco Bold';
+  margin-bottom: .9rem;
+}
+
+.content {
+  overflow:auto;
+  height: 450px;
+}
+
+.contentElement {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .9rem;
+}
+
+.titleElement {
+  font-family: 'San Francisco Regular'
+}
+.episodeElement {
+  font-family: 'San Francisco Thin';
+  font-size: .8rem;
+}
