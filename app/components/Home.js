@@ -4,7 +4,7 @@ import styles from './Home.css';
 
 import Header from './Header/Header';
 
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 export default class Home extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().format('YYYY-MM-DD')}`)
+    fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().tz("America/Los_Angeles").format('YYYY-MM-DD')}`)
       .then(data => data.json())
       .then((data) => (
         this.setState({
