@@ -1,23 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import Router from './router/router';
 import Home from './components/Home';
 import './app.global.css';
 
 render(
   <AppContainer>
-    <Home />
+    <Router />
   </AppContainer>,
   document.getElementById('root')
 );
 
 if (module.hot) {
-  module.hot.accept('./components/Home', () => {
+  module.hot.accept('./router/router', () => {
     // eslint-disable-next-line global-require
-    const NextRoot = require('./components/Home').default;
+    const Router = require('./router/router').default;
     render(
       <AppContainer>
-        <NextRoot />
+        <Router />
       </AppContainer>,
       document.getElementById('root')
     );

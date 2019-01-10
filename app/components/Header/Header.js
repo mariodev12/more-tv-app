@@ -4,6 +4,8 @@ import styles from './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faCog, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
+import { Link } from "react-router-dom";
+
 const moment = require('moment');
 
 class Header extends Component {
@@ -21,10 +23,12 @@ class Header extends Component {
                     </div>
                 </div>
                 <div className={styles.right}>
-                    <FontAwesomeIcon 
-                        icon={faCog} 
-                        className={styles.settingsIcon}
-                    />
+                    <Link to="/settings">
+                        <FontAwesomeIcon 
+                            icon={faCog} 
+                            className={styles.settingsIcon}
+                        />
+                    </Link>
                 </div>
             </div>
         );
