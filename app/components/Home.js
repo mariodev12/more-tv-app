@@ -27,6 +27,10 @@ export default class Home extends Component {
       })
   }
 
+  addZero = (season, episode) => {
+    return `S${season > 9 ? '' : '0'}${season}E${episode > 9 ? '' : '0'}${episode}`
+  }
+
   renderElements = () => {
     const { data } = this.state;
     console.log(data)
@@ -36,7 +40,7 @@ export default class Home extends Component {
           <div>
             <span className={styles.episodeElement}>{item.name}</span>
           </div>
-          <span>S{item.season}E{item.number}</span>
+          <span>{this.addZero(item.season, item.number)}</span>
         </div>
     ))
   }
