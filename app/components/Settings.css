@@ -1,4 +1,23 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+}
+
+.title {
+  font-family: 'San Francisco Bold';
+  margin-right: .3rem;
+}
+
 .contentTypes {
   display: flex;
   flex-direction: column;
+}
+
+.button {
+  background-color: skyblue;
+  height: 40px;
+  font-size: 15px;
 }

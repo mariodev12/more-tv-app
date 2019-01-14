@@ -14,19 +14,19 @@ class Settings extends Component {
     handleCheckbox = (e) => {
         const item = e.target.name;
         const isChecked = e.target.checked;
-        this.setState(prevState => (
-            {
-                options: prevState.options.set(item, isChecked)
-            }
-        ), () => console.log(this.state.options));
+        this.setState(prevState => ({ options: prevState.options.set(item, isChecked)}));
+    }
+
+    handleSaveButton = () => {
+        console.log(this.state.options)
     }
     
     render() {
         return (
-            <div>
-               <span>Settings</span> 
-                <h3>Types of shows</h3>
+            <div className={styles.container}>
                 <div className={styles.contentTypes}>
+                    <h1 className={styles.title}>Settings</h1> 
+                    <h3>Types of shows</h3>
                     <form>
                         <div>
                             <input type="checkbox" id="talkShow" name="talkShow" onChange={this.handleCheckbox}/>
@@ -54,6 +54,12 @@ class Settings extends Component {
                         </div>
                     </form>
                 </div>
+                <button 
+                    className={styles.button}
+                    onClick={this.handleSaveButton}
+                >
+                    Save
+                </button>
             </div>
         );
     }
