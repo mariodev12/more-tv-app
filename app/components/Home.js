@@ -11,10 +11,19 @@ export default class Home extends Component {
     super(props);
     this.state = {
       data: [],
+      settings: []
     }
   }
 
   componentDidMount() {
+    this.networkRequest();
+  }
+
+  addZero = (season, episode) => {
+    return `S${season > 9 ? '' : '0'}${season}E${episode > 9 ? '' : '0'}${episode}`
+  }
+
+  networkRequest = () => {
     fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().tz("America/Los_Angeles").format('YYYY-MM-DD')}`)
       .then(data => data.json())
       .then((data) => (
@@ -25,10 +34,6 @@ export default class Home extends Component {
       .catch( err => {
         console.log(err)
       })
-  }
-
-  addZero = (season, episode) => {
-    return `S${season > 9 ? '' : '0'}${season}E${episode > 9 ? '' : '0'}${episode}`
   }
 
   renderElements = () => {

@@ -18,14 +18,20 @@ class Settings extends Component {
     }
 
     handleSaveButton = () => {
-        console.log(this.state.options)
+        const {options} = this.state;
+        console.log(options)
+        const {history} = this.props;
+        localStorage.setItem('settings', JSON.stringify([...options]));
+        history.push('/');
     }
     
     render() {
         return (
             <div className={styles.container}>
                 <div className={styles.contentTypes}>
-                    <h1 className={styles.title}>Settings</h1> 
+                    <div>
+                        <h1 className={styles.title}>Settings</h1>
+                    </div>
                     <h3>Types of shows</h3>
                     <form>
                         <div>
