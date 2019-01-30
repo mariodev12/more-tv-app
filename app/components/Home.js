@@ -17,6 +17,7 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.networkRequest();
+    console.log(localStorage.getItem('settings'));
   }
 
   addZero = (season, episode) => {
@@ -39,7 +40,11 @@ export default class Home extends Component {
   renderElements = () => {
     const { data } = this.state;
     console.log(data)
-    return data.map((item) => (
+    return data
+      .filter((item) => {
+        return item.show.type === "Scripted"
+      })
+      .map((item) => (
         <div className={styles.contentElement} key={item.id}>
           <span className={styles.titleElement}>{item.show.name}</span>
           <div>
