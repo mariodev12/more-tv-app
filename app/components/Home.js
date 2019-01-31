@@ -1,8 +1,10 @@
 // @flow
 import React, { Component } from 'react';
+import { BarLoader } from 'react-spinners';
 import styles from './Home.css';
 
 import Header from './Header/Header';
+
 
 const moment = require('moment-timezone');
 
@@ -11,7 +13,6 @@ export default class Home extends Component {
     super(props);
     this.state = {
       data: [],
-      settings: []
     }
   }
 
@@ -25,7 +26,8 @@ export default class Home extends Component {
   }
 
   networkRequest = () => {
-    fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().tz("America/Los_Angeles").format('YYYY-MM-DD')}`)
+    setTimeout(() => {
+      fetch(`http://api.tvmaze.com/schedule?country=US&date=${moment().tz("America/Los_Angeles").format('YYYY-MM-DD')}`)
       .then(data => data.json())
       .then((data) => (
         this.setState({
@@ -35,6 +37,7 @@ export default class Home extends Component {
       .catch( err => {
         console.log(err)
       })
+    }, 2000);
   }
 
   renderElements = () => {
@@ -62,14 +65,21 @@ export default class Home extends Component {
         <div className={styles.container} data-tid="container">
           <Header />
           <div className={styles.content}>
+            <button onClick={this.networkRequest}>
+              <span>Update</span>
+            </button>
             {this.renderElements()}
           </div>
         </div>
       );
     }
     return (
-      <div>
-        <span>Loading...</span>
+      <div className={styles.contentLoading}>
+        <BarLoader
+          sizeUnit={"px"}
+          size={150}
+          color={'#123abc'}
+        />
       </div>
     )
   }
