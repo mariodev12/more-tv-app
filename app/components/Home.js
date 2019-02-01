@@ -65,9 +65,6 @@ export default class Home extends Component {
         <div className={styles.container} data-tid="container">
           <Header />
           <div className={styles.content}>
-            <button onClick={this.networkRequest}>
-              <span>Update</span>
-            </button>
             {this.renderElements()}
           </div>
         </div>
@@ -78,7 +75,6 @@ export default class Home extends Component {
         <BarLoader
           sizeUnit={"px"}
           size={150}
-          color={'#123abc'}
         />
       </div>
     )
